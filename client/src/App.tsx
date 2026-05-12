@@ -10,7 +10,6 @@ import ExperiencesPage from "./pages/ExperiencesPage";
 import ExplorePage from "./pages/ExplorePage";
 import TravelPage from "./pages/TravelPage";
 import SchedulePage from "./pages/SchedulePage";
-import SaveTheDatePage from "./pages/SaveTheDatePage";
 
 function Router() {
   return (
@@ -21,7 +20,6 @@ function Router() {
       <Route path={"/explore"} component={ExplorePage} />
       <Route path={"/travel"} component={TravelPage} />
       <Route path={"/schedule"} component={SchedulePage} />
-      <Route path={"/save-the-date"} component={SaveTheDatePage} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
