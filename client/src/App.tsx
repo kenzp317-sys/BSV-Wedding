@@ -11,6 +11,7 @@ import ExplorePage from "./pages/ExplorePage";
 import TravelPage from "./pages/TravelPage";
 import SchedulePage from "./pages/SchedulePage";
 import FaqPage from "./pages/FaqPage";
+import RsvpRegistryPage from "./pages/RsvpRegistryPage";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path={"/schedule"} component={SchedulePage} />
       <Route path={"/404"} component={NotFound} />
       <Route path={"/faq"} component={FaqPage} />
+      <Route path={"/rsvp"} component={RsvpRegistryPage} />
       <Route component={NotFound} />
     </Switch>
   );
