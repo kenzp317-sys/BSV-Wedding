@@ -177,8 +177,8 @@ export default function RsvpRegistryPage() {
                     padding: "0.9rem 2rem",
                     textDecoration: "none",
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "oklch(0.48 0.1 38)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "oklch(0.55 0.12 38)")}
+                 onMouseEnter={function(e){ e.currentTarget.style.background = "oklch(0.48 0.1 38)"; }}
+                 onMouseLeave={function(e){ e.currentTarget.style.background = "oklch(0.55 0.12 38)"; }}
                 >
                   RSVP on Zola <ExternalLink size={13} />
                 </a>
@@ -255,8 +255,8 @@ export default function RsvpRegistryPage() {
                     padding: "0.9rem 2rem",
                     textDecoration: "none",
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "oklch(0.65 0.09 75)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "oklch(0.72 0.1 75)")}
+                  onMouseEnter={function(e){ e.currentTarget.style.background = "oklch(0.65 0.09 75)"; }}
+                  onMouseLeave={function(e){ e.currentTarget.style.background = "oklch(0.72 0.1 75)"; }}
                 >
                   View Registry on Zola <ExternalLink size={13} />
                 </a>
