@@ -10,6 +10,7 @@ import ExperiencesPage from "./pages/ExperiencesPage";
 import ExplorePage from "./pages/ExplorePage";
 import TravelPage from "./pages/TravelPage";
 import SchedulePage from "./pages/SchedulePage";
+import FaqPage from "./pages/FaqPage";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
       <Route path={"/schedule"} component={SchedulePage} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
+      <Route path={"/faq"} component={FaqPage} />
     </Switch>
   );
 }
