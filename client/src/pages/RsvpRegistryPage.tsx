@@ -164,24 +164,22 @@ export default function RsvpRegistryPage() {
                 </p>
                 
                   href={ZOLA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 transition-all duration-200"
-                  style={{
-                    background: "oklch(0.55 0.12 38)",
-                    color: "white",
-                    fontFamily: "'Cinzel', serif",
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    padding: "0.9rem 2rem",
-                    textDecoration: "none",
-                  }}
-                 onMouseEnter={function(e){ e.currentTarget.style.background = "oklch(0.48 0.1 38)"; }}
-                 onMouseLeave={function(e){ e.currentTarget.style.background = "oklch(0.55 0.12 38)"; }}
-                >
-                  RSVP on Zola <ExternalLink size={13} />
-                </a>
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center gap-2"
+  style={{
+    background: "oklch(0.55 0.12 38)",
+    color: "white",
+    fontFamily: "'Cinzel', serif",
+    fontSize: "0.7rem",
+    letterSpacing: "0.2em",
+    textTransform: "uppercase",
+    padding: "0.9rem 2rem",
+    textDecoration: "none",
+  }}
+>
+  RSVP on Zola
+</a>
               </div>
             </div>
           </AnimatedSection>
@@ -242,24 +240,22 @@ export default function RsvpRegistryPage() {
                 </p>
                 
                   href={ZOLA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 transition-all duration-200"
-                  style={{
-                    background: "oklch(0.72 0.1 75)",
-                    color: "oklch(0.15 0.01 65)",
-                    fontFamily: "'Cinzel', serif",
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    padding: "0.9rem 2rem",
-                    textDecoration: "none",
-                  }}
-                  onMouseEnter={function(e){ e.currentTarget.style.background = "oklch(0.65 0.09 75)"; }}
-                  onMouseLeave={function(e){ e.currentTarget.style.background = "oklch(0.72 0.1 75)"; }}
-                >
-                  View Registry on Zola <ExternalLink size={13} />
-                </a>
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center gap-2"
+  style={{
+    background: "oklch(0.72 0.1 75)",
+    color: "oklch(0.15 0.01 65)",
+    fontFamily: "'Cinzel', serif",
+    fontSize: "0.7rem",
+    letterSpacing: "0.2em",
+    textTransform: "uppercase",
+    padding: "0.9rem 2rem",
+    textDecoration: "none",
+  }}
+>
+  View Registry on Zola
+</a>
               </div>
             </div>
           </AnimatedSection>
