@@ -35,7 +35,6 @@ function ZolaButton({ label, bg, color }: { label: string; bg: string; color: st
   const style = { display: "inline-flex", alignItems: "center", justifyContent: "center", background: bg, color: color, fontFamily: "'Cinzel', serif", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" as const, padding: "0.9rem 2rem", textDecoration: "none" };
   return <a href={ZOLA_URL} target="_blank" rel="noopener noreferrer" style={style}>{label}</a>;
 }
-    >
       {label}
     </a>
   );
