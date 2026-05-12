@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/explore", label: "Explore" },
   { href: "/travel", label: "Getting Here" },
   { href: "/schedule", label: "Schedule" },
-  { href: "/rsvp", label: "RSVP" },
+  { href: "/rsvp", label: "RSVP & Registry" },
   { href: "/faq", label: "FAQ" },
 ];
 
