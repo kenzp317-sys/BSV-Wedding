@@ -5,12 +5,13 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Welcome" },
-  { href: "/save-the-date", label: "Save the Date" },
   { href: "/venue", label: "The Venue" },
   { href: "/experiences", label: "Experiences" },
   { href: "/explore", label: "Explore" },
   { href: "/travel", label: "Getting Here" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/rsvp", label: "RSVP" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Navigation() {
