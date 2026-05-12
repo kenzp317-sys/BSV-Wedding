@@ -1,16 +1,11 @@
-/* RsvpRegistryPage - RSVP & Registry
-   Tuscan Terracotta & Ink design */
-
 import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ExternalLink, Heart, Gift } from "lucide-react";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_couple_terrace_d1d7acf5.webp";
 const TERRACE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_terrace_view_0b0e5a7d.webp";
 const SUNSET_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_sunset_89805c9b.webp";
 const FIREPIT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_firepit_evening_337d6ba2.webp";
-
 const ZOLA_URL = "https://www.zola.com/wedding/damon-mackenzie/registry";
 
 function useIntersectionObserver(threshold = 0.1) {
@@ -30,9 +25,34 @@ function useIntersectionObserver(threshold = 0.1) {
 function AnimatedSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const { ref, visible } = useIntersectionObserver();
   return (
-    <div ref={ref} className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} ${className}`}>
+    <div ref={ref} className={"transition-all duration-700 " + (visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8") + " " + className}>
       {children}
     </div>
+  );
+}
+
+function ZolaButton({ label, bg, color }: { label: string; bg: string; color: string }) {
+  return (
+    
+      href={ZOLA_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: bg,
+        color: color,
+        fontFamily: "'Cinzel', serif",
+        fontSize: "0.7rem",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase" as const,
+        padding: "0.9rem 2rem",
+        textDecoration: "none",
+      }}
+    >
+      {label}
+    </a>
   );
 }
 
@@ -42,21 +62,22 @@ export default function RsvpRegistryPage() {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: "55vh" }}>
+      <section
+        className="relative flex items-center justify-center overflow-hidden"
+        style={{ minHeight: "55vh" }}
+      >
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${HERO_IMG})` }}
+          style={{ backgroundImage: "url(" + HERO_IMG + ")" }}
         />
         <div
           className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, oklch(0.18 0.01 65 / 0.4) 0%, oklch(0.18 0.01 65 / 0.65) 60%, oklch(0.97 0.02 80 / 1) 100%)",
-          }}
+          style={{ background: "linear-gradient(to bottom, oklch(0.18 0.01 65 / 0.4) 0%, oklch(0.18 0.01 65 / 0.65) 60%, oklch(0.97 0.02 80 / 1) 100%)" }}
         />
         <div className="relative z-10 text-center px-6 py-20">
           <p
-            className="uppercase tracking-[0.3em] mb-4 text-white/80"
-            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.7rem" }}
+            className="uppercase tracking-[0.3em] mb-4"
+            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.7rem", color: "oklch(0.88 0.03 80)" }}
           >
             Damon & Mackenzie · May 2027
           </p>
@@ -99,7 +120,7 @@ export default function RsvpRegistryPage() {
             }}
           >
             We have set up our RSVP and registry together on Zola so everything is in one place.
-            Please use the links below to let us know you're coming and, if you'd like, explore our registry.
+            Please use the links below to let us know you are coming and, if you would like, explore our registry.
           </p>
         </AnimatedSection>
       </section>
@@ -118,7 +139,7 @@ export default function RsvpRegistryPage() {
                 <img
                   src={TERRACE_IMG}
                   alt="Borgo San Vincenzo terrace"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
                 <div
                   className="absolute inset-0"
@@ -127,12 +148,6 @@ export default function RsvpRegistryPage() {
               </div>
               <div style={{ height: 3, background: "oklch(0.55 0.12 38)" }} />
               <div className="p-8 flex flex-col flex-1">
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: "oklch(0.55 0.12 38 / 0.15)" }}
-                >
-                  <Heart size={18} style={{ color: "oklch(0.55 0.12 38)" }} />
-                </div>
                 <p
                   className="uppercase tracking-[0.25em] mb-2"
                   style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", color: "oklch(0.55 0.12 38)" }}
@@ -160,26 +175,10 @@ export default function RsvpRegistryPage() {
                     lineHeight: 1.7,
                   }}
                 >
-                  Please let us know you'll be joining us in Tuscany. Your RSVP helps us plan the most wonderful week together. We kindly ask that you respond by <strong style={{ color: "oklch(0.78 0.08 38)" }}>January 1, 2027</strong>.
+                  Please let us know you will be joining us in Tuscany. Your RSVP helps us plan the most wonderful week together. We kindly ask that you respond by{" "}
+                  <span style={{ color: "oklch(0.78 0.08 38)", fontWeight: 600 }}>January 1, 2027</span>.
                 </p>
-                
-                  href={ZOLA_URL}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center justify-center gap-2"
-  style={{
-    background: "oklch(0.55 0.12 38)",
-    color: "white",
-    fontFamily: "'Cinzel', serif",
-    fontSize: "0.7rem",
-    letterSpacing: "0.2em",
-    textTransform: "uppercase",
-    padding: "0.9rem 2rem",
-    textDecoration: "none",
-  }}
->
-  RSVP on Zola
-</a>
+                <ZolaButton label="RSVP on Zola" bg="oklch(0.55 0.12 38)" color="white" />
               </div>
             </div>
           </AnimatedSection>
@@ -194,7 +193,7 @@ export default function RsvpRegistryPage() {
                 <img
                   src={SUNSET_IMG}
                   alt="Borgo San Vincenzo sunset"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
                 <div
                   className="absolute inset-0"
@@ -203,12 +202,6 @@ export default function RsvpRegistryPage() {
               </div>
               <div style={{ height: 3, background: "oklch(0.72 0.1 75)" }} />
               <div className="p-8 flex flex-col flex-1">
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: "oklch(0.72 0.1 75 / 0.15)" }}
-                >
-                  <Gift size={18} style={{ color: "oklch(0.72 0.1 75)" }} />
-                </div>
                 <p
                   className="uppercase tracking-[0.25em] mb-2"
                   style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", color: "oklch(0.72 0.1 75)" }}
@@ -238,24 +231,7 @@ export default function RsvpRegistryPage() {
                 >
                   Your presence in Tuscany with us is truly the greatest gift. If you would like to give something, we have put together a registry on Zola with a range of options we would cherish.
                 </p>
-                
-                  href={ZOLA_URL}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center justify-center gap-2"
-  style={{
-    background: "oklch(0.72 0.1 75)",
-    color: "oklch(0.15 0.01 65)",
-    fontFamily: "'Cinzel', serif",
-    fontSize: "0.7rem",
-    letterSpacing: "0.2em",
-    textTransform: "uppercase",
-    padding: "0.9rem 2rem",
-    textDecoration: "none",
-  }}
->
-  View Registry on Zola
-</a>
+                <ZolaButton label="View Registry on Zola" bg="oklch(0.72 0.1 75)" color="oklch(0.15 0.01 65)" />
               </div>
             </div>
           </AnimatedSection>
@@ -285,7 +261,7 @@ export default function RsvpRegistryPage() {
                 textShadow: "0 2px 12px rgba(0,0,0,0.4)",
               }}
             >
-              "We cannot wait to share this place, this food, and this light with the people we love most."
+              We cannot wait to share this place, this food, and this light with the people we love most.
             </p>
             <p
               className="mt-4"
@@ -297,7 +273,7 @@ export default function RsvpRegistryPage() {
                 color: "oklch(0.75 0.08 38)",
               }}
             >
-              — Damon & Mackenzie
+              Damon & Mackenzie
             </p>
           </div>
         </div>
