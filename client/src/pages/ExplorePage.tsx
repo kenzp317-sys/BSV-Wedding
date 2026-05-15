@@ -1,8 +1,11 @@
+/* ExplorePage (combined) - Explore the Region + Getting Here
+   Tuscan Terracotta & Ink design */
+
 import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { MapView } from "@/components/Map";
-import { MapPin, Clock, Plane, Globe } from "lucide-react";
+import { MapPin, Clock, Plane, Car, Globe } from "lucide-react";
 
 const TUSCANY_MAY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/tuscany_may-hfVdjaWTo6NDWn3NP9RUbb.webp";
 const MONTEPULCIANO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/montepulciano_sunset_a58bf291.jpeg";
@@ -59,7 +62,7 @@ const destinations = [
     tag: "UNESCO Heritage",
     tagColor: "bg-[oklch(0.48_0.07_130)]",
     imgs: [PIENZA_IMG, PIENZA_VIEW_IMG],
-    desc: "Called the ideal city of the Renaissance, Pienza was redesigned in the 15th century by Pope Pius II as a model Renaissance town. Today it is a perfectly preserved jewel of the Val d'Orcia, famous for its Pecorino di Pienza cheese and its stunning views.",
+    desc: "Called the 'ideal city of the Renaissance,' Pienza was redesigned in the 15th century by Pope Pius II as a model Renaissance town. Today it is a perfectly preserved jewel of the Val d'Orcia, famous for its Pecorino di Pienza cheese and its stunning views.",
     highlights: [
       "Piazza Pio II — the Renaissance heart of the town",
       "Duomo di Pienza — with its unique Gothic-Renaissance interior",
@@ -96,7 +99,7 @@ const destinations = [
     highlights: [
       "Piazza del Campo — the fan-shaped medieval square, heart of the city",
       "Siena Duomo — a stunning Gothic-Romanesque cathedral",
-      "Museo dell'Opera del Duomo — home to Duccio's Maesta",
+      "Museo dell'Opera del Duomo — home to Duccio's Maestà",
       "Pinacoteca Nazionale — Sienese Gothic painting collection",
       "Enoteca Italiana — a national wine library in a 16th-century fortress",
       "Osteria Le Logge — one of Siena's finest restaurants",
@@ -149,7 +152,7 @@ const travelTips = {
     { title: "From Milan", desc: "Take the A1 south to the Valdichiana exit, then follow signs to Montepulciano. Approximately 3.5 hours. Consider breaking the journey in Florence." },
   ],
   taiwan: [
-    { title: "Best Flights", desc: "From Taoyuan International Airport (TPE), the most common routes to Rome FCO are via connecting hubs: Dubai (Emirates), Doha (Qatar Airways), Frankfurt (Lufthansa), or Amsterdam (KLM). Total travel time is typically 14-18 hours." },
+    { title: "Best Flights", desc: "From Taoyuan International Airport (TPE), the most common routes to Rome FCO are via connecting hubs: Dubai (Emirates), Doha (Qatar Airways), Frankfurt (Lufthansa), or Amsterdam (KLM). Total travel time is typically 14–18 hours." },
     { title: "Direct to Europe", desc: "China Airlines and EVA Air operate flights from Taipei to European hubs (Amsterdam, Frankfurt, Vienna, Paris). Connecting flights to Rome FCO are frequent and quick." },
     { title: "Visa Requirements", desc: "Taiwan passport holders can enter Italy (and the Schengen Area) visa-free for up to 90 days. Ensure your passport is valid for at least 6 months beyond your travel dates." },
     { title: "Currency Exchange", desc: "Exchange New Taiwan Dollars (NTD) to Euros before departure or at the airport. Major credit cards are accepted at BSV and most restaurants." },
@@ -166,7 +169,7 @@ export default function ExplorePage() {
     mapRef.current = map;
     const bsvLocation = { lat: 43.1207, lng: 11.7817 };
     map.setCenter(bsvLocation);
-    map.setZoom(7);
+    map.setZoom(6);
 
     const infoWindow = new google.maps.InfoWindow();
 
@@ -177,10 +180,10 @@ export default function ExplorePage() {
       { lat: 45.6306, lng: 8.7231, label: "MXP", name: "Milan Malpensa Airport" },
     ];
 
-    airportMarkers.forEach(({ lat, lng, label, name }) => {
-      const marker = new google.maps.Marker({ position: { lat, lng }, map, label: { text: label, color: "white", fontSize: "11px", fontWeight: "bold" }, title: name });
-      marker.addListener("click", () => {
-        infoWindow.setContent("<div style='font-family:sans-serif;padding:4px 6px;font-size:13px;font-weight:600'>" + name + "</div>");
+    airportMarkers.forEach(function(a) {
+      const marker = new google.maps.Marker({ position: { lat: a.lat, lng: a.lng }, map, label: { text: a.label, color: "white", fontSize: "11px", fontWeight: "bold" }, title: a.name });
+      marker.addListener("click", function() {
+        infoWindow.setContent("<div style='padding:4px 6px;font-size:13px;font-weight:600'>" + a.name + "</div>");
         infoWindow.open(map, marker);
       });
     });
@@ -190,40 +193,40 @@ export default function ExplorePage() {
       { lat: 43.0760, lng: 11.6780, label: "PZ", name: "Pienza" },
       { lat: 43.0560, lng: 11.4890, label: "MB", name: "Montalcino" },
       { lat: 43.3186, lng: 11.3308, label: "SI", name: "Siena" },
-      { lat: 42.9197, lng: 11.7886, label: "OR", name: "Orvieto" },
-      { lat: 43.1122, lng: 12.3888, label: "PG", name: "Perugia" },
+      { lat: 42.7186, lng: 12.1073, label: "OR", name: "Orvieto" },
+      { lat: 43.1107, lng: 12.3908, label: "PG", name: "Perugia" },
       { lat: 43.7696, lng: 11.2558, label: "FI", name: "Florence" },
       { lat: 41.9028, lng: 12.4964, label: "RM", name: "Rome" },
     ];
 
-    townMarkers.forEach(({ lat, lng, label, name }) => {
+    townMarkers.forEach(function(t) {
       const marker = new google.maps.Marker({
-        position: { lat, lng }, map,
-        label: { text: label, color: "white", fontSize: "10px", fontWeight: "bold" },
-        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 14, fillColor: "#2563EB", fillOpacity: 0.85, strokeColor: "#fff", strokeWeight: 2 },
-        title: name,
+        position: { lat: t.lat, lng: t.lng }, map,
+        label: { text: t.label, color: "white", fontSize: "10px", fontWeight: "bold" },
+        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 14, fillColor: "#2563EB", fillOpacity: 0.85, strokeColor: "white", strokeWeight: 2 },
+        title: t.name,
       });
-      marker.addListener("click", () => {
-        infoWindow.setContent("<div style='font-family:sans-serif;padding:4px 6px;font-size:13px;font-weight:600'>" + name + "</div>");
+      marker.addListener("click", function() {
+        infoWindow.setContent("<div style='padding:4px 6px;font-size:13px;font-weight:600'>" + t.name + "</div>");
         infoWindow.open(map, marker);
       });
     });
 
     const bsvMarker = new google.maps.Marker({
       position: bsvLocation, map, title: "Borgo San Vincenzo",
-      icon: { path: google.maps.SymbolPath.CIRCLE, scale: 16, fillColor: "#B5541A", fillOpacity: 1, strokeColor: "#fff", strokeWeight: 2 },
+      icon: { path: google.maps.SymbolPath.CIRCLE, scale: 16, fillColor: "#B5541A", fillOpacity: 1, strokeColor: "white", strokeWeight: 2 },
     });
-    bsvMarker.addListener("click", () => {
-      infoWindow.setContent("<div style='font-family:sans-serif;padding:4px 6px;font-size:13px;font-weight:600'>Borgo San Vincenzo</div>");
+    bsvMarker.addListener("click", function() {
+      infoWindow.setContent("<div style='padding:4px 6px;font-size:13px;font-weight:600'>Borgo San Vincenzo</div>");
       infoWindow.open(map, bsvMarker);
     });
-  };
   };
 
   return (
     <div className="min-h-screen bg-[oklch(0.97_0.02_80)]">
       <Navigation />
 
+      {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(" + TUSCANY_MAY_IMG + ")" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.18_0.01_65/0.85)] via-[oklch(0.18_0.01_65/0.3)] to-transparent" />
@@ -235,16 +238,8 @@ export default function ExplorePage() {
           </h1>
         </div>
       </section>
-      
-<div className="bg-[oklch(0.18_0.01_65)] py-3 px-6 text-center">
-        <p className="font-body text-sm text-[oklch(0.75_0.08_38)]">
-          Looking for airport and travel information?{" "}
-          <a href="#getting-here" className="text-white underline underline-offset-2">
-            Jump to Getting Here
-          </a>
-        </p>
-      </div>
-      
+
+      {/* Intro */}
       <section className="py-16 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -259,6 +254,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* Map */}
       <section className="py-10 pb-16 bg-[oklch(0.93_0.03_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -278,6 +274,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* Driving Distances */}
       <section className="py-20 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -286,7 +283,9 @@ export default function ExplorePage() {
               <h2 className="font-display text-4xl sm:text-5xl text-[oklch(0.18_0.01_65)]">
                 Driving <em className="italic text-[oklch(0.55_0.12_38)]">Distances</em>
               </h2>
-              <p className="font-body text-sm text-[oklch(0.45_0.02_65)] mt-3 max-w-xl mx-auto">A car is the best way to reach BSV and explore the surrounding region at your own pace.</p>
+              <p className="font-body text-sm text-[oklch(0.45_0.02_65)] mt-3 max-w-xl mx-auto">
+                A car is the best way to reach BSV and explore the surrounding region at your own pace.
+              </p>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
@@ -314,6 +313,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* Nearby Towns */}
       <section className="py-10 pb-24 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -332,7 +332,7 @@ export default function ExplorePage() {
                     {dest.imgs.length === 2 ? (
                       <div className="grid grid-cols-2 gap-3">
                         <img src={dest.imgs[0]} alt={dest.name} className="w-full h-64 object-cover rounded-sm shadow-lg" />
-                        <img src={dest.imgs[1]} alt={dest.name} className="w-full h-64 object-cover rounded-sm shadow-lg mt-8" />
+                        <img src={dest.imgs[1]} alt={dest.name + " street"} className="w-full h-64 object-cover rounded-sm shadow-lg mt-8" />
                       </div>
                     ) : (
                       <img src={dest.imgs[0]} alt={dest.name} className="w-full h-80 object-cover rounded-sm shadow-xl" />
@@ -341,7 +341,9 @@ export default function ExplorePage() {
                   <div className={i % 2 === 1 ? "lg:order-1" : ""}>
                     <div className="flex items-center gap-3 mb-4">
                       <span className={"font-cinzel text-xs tracking-widest uppercase " + dest.tagColor + " text-white px-3 py-1 rounded-sm"}>{dest.tag}</span>
-                      <span className="flex items-center gap-1 font-cinzel text-xs tracking-wider uppercase text-[oklch(0.55_0.02_65)]"><MapPin size={10} /> {dest.distance}</span>
+                      <span className="flex items-center gap-1 font-cinzel text-xs tracking-wider uppercase text-[oklch(0.55_0.02_65)]">
+                        <MapPin size={10} /> {dest.distance}
+                      </span>
                     </div>
                     <h2 className="font-display text-4xl sm:text-5xl text-[oklch(0.18_0.01_65)] mb-4">{dest.name}</h2>
                     <div className="w-12 h-px bg-[oklch(0.55_0.12_38)] mb-5" />
@@ -367,6 +369,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* Val d'Orcia Villages */}
       <section className="py-20 bg-[oklch(0.93_0.03_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -375,14 +378,18 @@ export default function ExplorePage() {
               <h2 className="font-display text-4xl sm:text-5xl text-[oklch(0.18_0.01_65)]">
                 Val d'Orcia <em className="italic text-[oklch(0.55_0.12_38)]">Villages</em>
               </h2>
-              <p className="font-body text-sm text-[oklch(0.45_0.02_65)] mt-3 max-w-xl mx-auto">The Val d'Orcia UNESCO landscape is dotted with smaller villages, each with its own character. Perfect for an afternoon drive.</p>
+              <p className="font-body text-sm text-[oklch(0.45_0.02_65)] mt-3 max-w-xl mx-auto">
+                The Val d'Orcia UNESCO landscape is dotted with smaller villages, each with its own character. Perfect for an afternoon drive.
+              </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {valDorciaHighlights.map(({ title, desc, distance }) => (
                 <div key={title} className="bg-white border border-[oklch(0.88_0.03_75)] rounded-sm p-5">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="font-display text-xl text-[oklch(0.18_0.01_65)]">{title}</h3>
-                    <span className="flex items-center gap-1 font-cinzel text-xs tracking-wider uppercase text-[oklch(0.55_0.12_38)]"><Clock size={10} /> {distance}</span>
+                    <span className="flex items-center gap-1 font-cinzel text-xs tracking-wider uppercase text-[oklch(0.55_0.12_38)]">
+                      <Clock size={10} /> {distance}
+                    </span>
                   </div>
                   <p className="font-body text-sm text-[oklch(0.45_0.02_65)] leading-relaxed">{desc}</p>
                 </div>
@@ -392,7 +399,8 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      <section id="getting-here" className="py-20 bg-[oklch(0.97_0.02_80)]">
+      {/* Getting Here — Airports */}
+      <section className="py-20 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -404,7 +412,9 @@ export default function ExplorePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {airports.map((airport) => (
                 <div key={airport.code} className={"bg-white rounded-sm p-6 border " + (airport.recommended ? "border-[oklch(0.55_0.12_38)] shadow-lg" : "border-[oklch(0.88_0.03_75)]")}>
-                  {airport.recommended && <span className="inline-block font-cinzel text-xs tracking-widest uppercase bg-[oklch(0.55_0.12_38)] text-white px-3 py-1 mb-3">Recommended</span>}
+                  {airport.recommended && (
+                    <span className="inline-block font-cinzel text-xs tracking-widest uppercase bg-[oklch(0.55_0.12_38)] text-white px-3 py-1 mb-3">Recommended</span>
+                  )}
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <div className="flex items-center gap-3">
@@ -427,6 +437,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      {/* Travel Tips by Origin */}
       <section className="py-20 bg-[oklch(0.93_0.03_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -442,7 +453,11 @@ export default function ExplorePage() {
                 { key: "italy", label: "From Italy", icon: "🇮🇹" },
                 { key: "taiwan", label: "From Taiwan", icon: "🇹🇼" },
               ].map(({ key, label, icon }) => (
-                <button key={key} onClick={() => setActiveTab(key as "us" | "italy" | "taiwan")} className={"flex items-center gap-2 px-5 py-3 font-cinzel text-xs tracking-widest uppercase transition-all duration-200 " + (activeTab === key ? "bg-[oklch(0.55_0.12_38)] text-white" : "bg-white text-[oklch(0.35_0.02_65)]")}>
+                <button
+                  key={key}
+                  onClick={() => setActiveTab(key as "us" | "italy" | "taiwan")}
+                  className={"flex items-center gap-2 px-5 py-3 font-cinzel text-xs tracking-widest uppercase transition-all duration-200 " + (activeTab === key ? "bg-[oklch(0.55_0.12_38)] text-white" : "bg-white text-[oklch(0.35_0.02_65)]")}
+                >
                   <span>{icon}</span> {label}
                 </button>
               ))}
@@ -458,7 +473,8 @@ export default function ExplorePage() {
           </AnimatedSection>
         </div>
       </section>
-      
+
+      {/* BSV Address */}
       <section className="py-16 bg-[oklch(0.18_0.01_65)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
