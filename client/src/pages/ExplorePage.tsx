@@ -258,7 +258,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      <section id="getting-here" className="py-20 bg-[oklch(0.97_0.02_80)]">
+      <section className="py-20 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-10">
@@ -372,7 +372,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-[oklch(0.97_0.02_80)]">
+      <section id="getting-here" className="py-20 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
