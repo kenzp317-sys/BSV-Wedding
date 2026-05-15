@@ -168,22 +168,6 @@ export default function ExplorePage() {
     map.setCenter(bsvLocation);
     map.setZoom(7);
 
-    const airportCoords = [
-      { lat: 41.8003, lng: 12.2389, label: "FCO" },
-      { lat: 43.8100, lng: 11.2051, label: "FLR" },
-      { lat: 43.6839, lng: 10.3927, label: "PSA" },
-    ];
-
-    airportCoords.forEach(({ lat, lng, label }) => {
-      new google.maps.Marker({ position: { lat, lng }, map, label: { text: label, color: "white", fontSize: "11px", fontWeight: "bold" }, title: label });
-    });
-
-    const handleMapReady = (map: google.maps.Map) => {
-    mapRef.current = map;
-    const bsvLocation = { lat: 43.1207, lng: 11.7817 };
-    map.setCenter(bsvLocation);
-    map.setZoom(7);
-
     const infoWindow = new google.maps.InfoWindow();
 
     const airportMarkers = [
