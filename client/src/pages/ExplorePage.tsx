@@ -218,6 +218,8 @@ export default function ExplorePage() {
       infoWindow.open(map, bsvMarker);
     });
   };
+strokeColor: "#fff", strokeWeight: 2 },
+    });
   };
 
   return (
