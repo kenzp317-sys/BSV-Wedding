@@ -7,7 +7,7 @@ const navLinks = [
   { href: "/", label: "Welcome" },
   { href: "/venue", label: "The Venue" },
   { href: "/experiences", label: "Experiences" },
-  { href: "/explore", label: "Explore & Getting Here" },
+  { href: "/explore", label: "The Area" },
   { href: "/schedule", label: "Schedule" },
   { href: "/rsvp", label: "RSVP & Registry" },
   { href: "/faq", label: "FAQ" },
