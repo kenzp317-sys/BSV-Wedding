@@ -235,7 +235,7 @@ export default function TravelPage() {
               <MapView onMapReady={handleMapReady} />
             </div>
             <p className="text-center font-cinzel text-xs tracking-wider uppercase text-[oklch(0.55_0.02_65)] mt-3">
-              Red marker = Borgo San Vincenzo · Blue markers = Airports
+Orange dot = Borgo San Vincenzo · Red markers = Airports
             </p>
           </AnimatedSection>
         </div>
