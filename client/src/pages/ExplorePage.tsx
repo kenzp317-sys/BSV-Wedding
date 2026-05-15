@@ -178,25 +178,63 @@ export default function ExplorePage() {
       new google.maps.Marker({ position: { lat, lng }, map, label: { text: label, color: "white", fontSize: "11px", fontWeight: "bold" }, title: label });
     });
 
-    const nearbyTowns = [
-      { lat: 43.1060, lng: 11.7833, label: "MP" },
-      { lat: 43.0760, lng: 11.6780, label: "PZ" },
-      { lat: 43.0560, lng: 11.4890, label: "MB" },
-      { lat: 43.3186, lng: 11.3308, label: "SI" },
+    const handleMapReady = (map: google.maps.Map) => {
+    mapRef.current = map;
+    const bsvLocation = { lat: 43.1207, lng: 11.7817 };
+    map.setCenter(bsvLocation);
+    map.setZoom(7);
+
+    const infoWindow = new google.maps.InfoWindow();
+
+    const airportMarkers = [
+      { lat: 41.8003, lng: 12.2389, label: "FCO", name: "Rome Fiumicino Airport" },
+      { lat: 43.8100, lng: 11.2051, label: "FLR", name: "Florence Peretola Airport" },
+      { lat: 43.6839, lng: 10.3927, label: "PSA", name: "Pisa Galileo Galilei Airport" },
+      { lat: 45.6306, lng: 8.7231, label: "MXP", name: "Milan Malpensa Airport" },
     ];
 
-    nearbyTowns.forEach(({ lat, lng, label }) => {
-      new google.maps.Marker({
-        position: { lat, lng }, map,
-        label: { text: label, color: "white", fontSize: "10px", fontWeight: "bold" },
-        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 14, fillColor: "#2563EB", fillOpacity: 0.85, strokeColor: "#fff", strokeWeight: 2 },
-        title: label,
+    airportMarkers.forEach(({ lat, lng, label, name }) => {
+      const marker = new google.maps.Marker({ position: { lat, lng }, map, label: { text: label, color: "white", fontSize: "11px", fontWeight: "bold" }, title: name });
+      marker.addListener("click", () => {
+        infoWindow.setContent("<div style='font-family:sans-serif;padding:4px 6px;font-size:13px;font-weight:600'>" + name + "</div>");
+        infoWindow.open(map, marker);
       });
     });
 
-    new google.maps.Marker({
+    const townMarkers = [
+      { lat: 43.1060, lng: 11.7833, label: "MP", name: "Montepulciano" },
+      { lat: 43.0760, lng: 11.6780, label: "PZ", name: "Pienza" },
+      { lat: 43.0560, lng: 11.4890, label: "MB", name: "Montalcino" },
+      { lat: 43.3186, lng: 11.3308, label: "SI", name: "Siena" },
+      { lat: 42.9197, lng: 11.7886, label: "OR", name: "Orvieto" },
+      { lat: 43.1122, lng: 12.3888, label: "PG", name: "Perugia" },
+      { lat: 43.7696, lng: 11.2558, label: "FI", name: "Florence" },
+      { lat: 41.9028, lng: 12.4964, label: "RM", name: "Rome" },
+    ];
+
+    townMarkers.forEach(({ lat, lng, label, name }) => {
+      const marker = new google.maps.Marker({
+        position: { lat, lng }, map,
+        label: { text: label, color: "white", fontSize: "10px", fontWeight: "bold" },
+        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 14, fillColor: "#2563EB", fillOpacity: 0.85, strokeColor: "#fff", strokeWeight: 2 },
+        title: name,
+      });
+      marker.addListener("click", () => {
+        infoWindow.setContent("<div style='font-family:sans-serif;padding:4px 6px;font-size:13px;font-weight:600'>" + name + "</div>");
+        infoWindow.open(map, marker);
+      });
+    });
+
+    const bsvMarker = new google.maps.Marker({
       position: bsvLocation, map, title: "Borgo San Vincenzo",
-      icon: { path: google.maps.SymbolPath.CIRCLE, scale: 14, fillColor: "#B5541A", fillOpacity: 1, strokeColor: "#fff", strokeWeight: 2 },
+      icon: { path: google.maps.SymbolPath.CIRCLE, scale: 16, fillColor: "#B5541A", fillOpacity: 1, strokeColor: "#fff", strokeWeight: 2 },
+    });
+    bsvMarker.addListener("click", () => {
+      infoWindow.setContent("<div style='font-family:sans-serif;padding:4px 6px;font-size:13px;font-weight:600'>Borgo San Vincenzo</div>");
+      infoWindow.open(map, bsvMarker);
+    });
+  };
+strokeColor: "#fff", strokeWeight: 2 },
     });
   };
 
