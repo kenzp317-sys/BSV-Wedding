@@ -249,7 +249,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-[oklch(0.97_0.02_80)]">
+      <section id="getting-here" className="py-20 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-10">
@@ -430,6 +430,14 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      <div className="bg-[oklch(0.18_0.01_65)] py-3 px-6 text-center">
+  <p className="font-body text-sm text-[oklch(0.75_0.08_38)]">
+    Looking for airport and travel information?{" "}
+    <a href="#getting-here" className="text-white underline underline-offset-2 hover:text-[oklch(0.75_0.08_38)]">
+      Jump to Getting Here
+    </a>
+  </p>
+</div>
       <section className="py-16 bg-[oklch(0.18_0.01_65)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
