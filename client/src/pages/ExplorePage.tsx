@@ -218,7 +218,6 @@ export default function ExplorePage() {
       infoWindow.open(map, bsvMarker);
     });
   };
-    });
   };
 
   return (
