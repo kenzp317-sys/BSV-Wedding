@@ -41,7 +41,7 @@ const tabs = [
   { key: "getting-here", label: "Getting Here" },
   { key: "nearby-towns", label: "Nearby Towns" },
   { key: "vineyards", label: "Vineyards & Wine" },
-  { key: "villages", label: "Villages" },
+  { key: "villages", label: "Val d'Orcia" },
 ];
 
 const airports = [
