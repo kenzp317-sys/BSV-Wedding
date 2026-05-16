@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ChevronDown, Heart, Shirt, Backpack, Zap, MessageCircle, Car, Sun } from "lucide-react";
+import { ChevronDown, Heart, Shirt, Backpack, Zap, MessageCircle, Car, Sun, Globe } from "lucide-react";
 
 function useIntersectionObserver(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
