@@ -179,6 +179,18 @@ const faqs: FaqItem[] = [
       </div>
     ),
   },
+   {
+    icon: <Globe size={18} />,
+    question: "Do I need an ETIAS to travel to Italy?",
+    answer: (
+      <div className="space-y-3">
+        <p>Yes — from 2025, citizens of visa-exempt countries including the <strong>United States</strong> and <strong>Taiwan</strong> are required to obtain an <strong>ETIAS</strong> (European Travel Information and Authorisation System) before travelling to Italy and the Schengen Area.</p>
+        <p style={{ color: "oklch(0.35 0.02 65)" }}>ETIAS is not a visa — it is a simple online pre-travel authorisation, similar to the US ESTA system. It costs <strong>€7</strong>, takes around 10 minutes to complete, and is valid for 3 years. Most applications are approved within minutes, though it is recommended to apply well in advance.</p>
+        <p style={{ color: "oklch(0.35 0.02 65)" }}>Apply at the official ETIAS website: <a href="https://travel-europe.europa.eu/etias_en" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.55 0.12 38)", textDecoration: "underline" }}>travel-europe.europa.eu/etias</a></p>
+        <p style={{ color: "oklch(0.50 0.03 65)", fontSize: "0.9rem" }}>Note: Italian citizens and those with valid EU residency do not need ETIAS.</p>
+      </div>
+    ),
+  },
   {
     icon: <Car size={18} />,
     question: "What is the ZTL zone in Montepulciano?",
