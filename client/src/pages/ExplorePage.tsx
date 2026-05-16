@@ -226,7 +226,7 @@ export default function ExplorePage() {
       </section>
       <section className="py-4 bg-[oklch(0.93_0.03_80)] sticky top-16 md:top-20 z-30 border-b border-[oklch(0.88_0.03_75)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="flex gap-2 overflow-x-auto justify-center">
             {tabs.map(function(tab, i) {
               return (
                 <button key={tab.key} onClick={function() { setActiveTab(i); }} className={"flex-shrink-0 px-5 py-2.5 rounded-sm font-cinzel text-xs tracking-widest uppercase transition-all duration-200 " + (activeTab === i ? "bg-[oklch(0.55_0.12_38)] text-white shadow-md" : "bg-white text-[oklch(0.35_0.02_65)] border border-[oklch(0.88_0.03_75)]")}>
