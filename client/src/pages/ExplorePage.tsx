@@ -66,7 +66,7 @@ const travelTips: Record<string, { title: string; desc: string }[]> = {
   us: [
     { title: "Best Flights", desc: "Most US travelers will fly into Rome Fiumicino (FCO). Delta, United, American, and ITA Airways all operate transatlantic routes." },
     { title: "Rent a Car", desc: "We strongly recommend renting a car at the airport. The drive from Rome FCO to BSV is about 2 hours on the A1 Autostrada." },
-    { title: "Arrive a Day Early", desc: "Consider arriving in Rome or Florence a day early to recover from jet lag before making the drive to BSV." },
+    { title: "ETIAS Entry Requirement", desc: "From 2025, US citizens travelling to Europe require an ETIAS travel authorisation. It costs around €7, is valid for 3 years, and must be obtained before travel. Apply at travel-europe.europa.eu/etias well in advance." },
     { title: "Time Zone", desc: "Italy in May is on CEST (UTC+2), which is 6 hours ahead of Eastern Time and 9 hours ahead of Pacific Time." },
   ],
   italy: [
