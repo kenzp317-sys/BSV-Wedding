@@ -152,6 +152,14 @@ export default function VenuePage() {
         </div>
       </section>
 
+
+      {/* Booking Notice */}
+      <div className="bg-[oklch(0.55_0.12_38)] py-4 px-6 text-center">
+        <p className="font-body text-sm text-white">
+          We have reserved the entire property exclusively for our group for all five nights — there is nothing to book. Your accommodation is taken care of.
+        </p>
+      </div>
+
       {/* About */}
       <section className="py-20 md:py-28 bg-[oklch(0.97_0.02_80)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -276,39 +284,6 @@ export default function VenuePage() {
                       <a.icon size={18} className="text-[oklch(0.55_0.12_38)]" />
                     </div>
                     <span className="font-cinzel text-xs tracking-wider uppercase text-[oklch(0.35_0.02_65)]">{a.label}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="py-20 bg-[oklch(0.97_0.02_80)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-10">
-              <p className="section-label mb-3">Location</p>
-              <h2 className="font-display text-4xl sm:text-5xl text-[oklch(0.18_0.01_65)]">
-                Find Us in <em className="italic text-[oklch(0.55_0.12_38)]">Tuscany</em>
-              </h2>
-              <p className="font-body text-sm text-[oklch(0.45_0.02_65)] mt-3">Strada del Vino Nobile, Montepulciano, Siena, Tuscany, Italy</p>
-            </div>
-            <div className="rounded-sm overflow-hidden shadow-xl border border-[oklch(0.88_0.03_75)]" style={{ height: 450 }}>
-              <MapView onMapReady={handleMapReady} />
-            </div>
-            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              {[
-                { place: "Montepulciano", dist: "~2.5 km" },
-                { place: "Pienza", dist: "~9 km" },
-                { place: "Montalcino", dist: "~38 km" },
-                { place: "Siena", dist: "~65 km" },
-              ].map(function(item) {
-                return (
-                  <div key={item.place} className="bg-white rounded-sm p-4 border border-[oklch(0.88_0.03_75)]">
-                    <p className="font-display text-base text-[oklch(0.18_0.01_65)]">{item.place}</p>
-                    <p className="font-cinzel text-xs tracking-widest uppercase text-[oklch(0.55_0.12_38)] mt-1">{item.dist}</p>
                   </div>
                 );
               })}
