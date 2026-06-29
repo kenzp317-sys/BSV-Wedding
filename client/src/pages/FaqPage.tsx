@@ -160,7 +160,7 @@ const faqs: FaqItem[] = [
           Please be sure to check your <strong>spam or promotions folder</strong> if you do not see it — emails from new senders sometimes get filtered there. If your link has not arrived or you are having any trouble accessing it, just send us a message and we will sort it out right away.
         </p>
         <p style={{ color: "oklch(0.50 0.03 65)", fontSize: "0.9rem" }}>
-          We kindly ask that you respond by <strong>October 1, 2026</strong> so we can finalise all the lovely details.
+          We kindly ask that you respond by <strong>October 1, 2026</strong> so we can finalize all the lovely details.
         </p>
       </div>
     ),
