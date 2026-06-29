@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ChevronDown, Heart, Shirt, Backpack, Zap, MessageCircle, Car, Sun, Globe } from "lucide-react";
+import { ChevronDown, Heart, Shirt, Backpack, Zap, MessageCircle, Car, Sun, Globe, Mail } from "lucide-react";
 
 function useIntersectionObserver(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -144,6 +144,23 @@ const faqs: FaqItem[] = [
         </div>
         <p style={{ color: "oklch(0.50 0.03 65)", fontSize: "0.9rem" }}>
           We recommend picking up a universal travel adaptor before you leave — they're easy to find online or at most airports.
+        </p>
+      </div>
+    ),
+  },
+ {
+    icon: <Mail size={18} />,
+    question: "How do we RSVP?",
+    answer: (
+      <div className="space-y-3">
+        <p>
+          We will email each household a personalised RSVP link, sent from <strong>hello@mackenzieanddamon2027.com</strong>. Look out for it in your inbox closer to the wedding.
+        </p>
+        <p style={{ color: "oklch(0.35 0.02 65)" }}>
+          Please be sure to check your <strong>spam or promotions folder</strong> if you do not see it — emails from new senders sometimes get filtered there. If your link has not arrived or you are having any trouble accessing it, just send us a message and we will sort it out right away.
+        </p>
+        <p style={{ color: "oklch(0.50 0.03 65)", fontSize: "0.9rem" }}>
+          We kindly ask that you respond by <strong>October 1, 2026</strong> so we can finalise all the lovely details.
         </p>
       </div>
     ),
