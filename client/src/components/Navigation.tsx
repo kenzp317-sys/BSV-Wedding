@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/venue", label: "The Venue" },
   { href: "/explore", label: "Explore" },
   { href: "/schedule", label: "Schedule" },
-  { href: "/rsvp", label: "RSVP & Registry" },
+  { href: "/rsvp", label: "Registry" },
   { href: "/faq", label: "FAQ" },
 ];
 
