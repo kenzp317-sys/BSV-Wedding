@@ -3,10 +3,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_couple_terrace_d1d7acf5.webp";
-const TERRACE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_terrace_view_0b0e5a7d.webp";
 const SUNSET_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_sunset_89805c9b.webp";
 const FIREPIT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663509261243/TTdsT7QyySS9XYyyRtVerp/bsv_firepit_evening_337d6ba2.webp";
-const RSVP_URL = "https://www.zola.com/wedding/damon-mackenzie/rsvp";
+
 const REGISTRY_URL = "https://www.zola.com/wedding/damon-mackenzie/registry";
 
 function useIntersectionObserver(threshold = 0.1) {
@@ -41,61 +40,46 @@ export default function RsvpRegistryPage() {
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.97 0.02 80)" }}>
       <Navigation />
+
       <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: "55vh" }}>
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(" + HERO_IMG + ")" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, oklch(0.18 0.01 65 / 0.4) 0%, oklch(0.18 0.01 65 / 0.65) 60%, oklch(0.97 0.02 80 / 1) 100%)" }} />
         <div className="relative z-10 text-center px-6 py-20">
           <p className="uppercase tracking-[0.3em] mb-4" style={{ fontFamily: "'Cinzel', serif", fontSize: "0.7rem", color: "oklch(0.88 0.03 80)" }}>Damon & Mackenzie · May 2027</p>
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 8vw, 5.5rem)", fontWeight: 300, color: "white", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}>RSVP & Registry</h1>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 8vw, 5.5rem)", fontWeight: 300, color: "white", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}>Registry</h1>
           <div style={{ width: 48, height: 1, background: "oklch(0.75 0.08 38)", margin: "1.5rem auto" }} />
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "oklch(0.92 0.03 80)" }}>Everything you need is on our Zola page</p>
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "oklch(0.92 0.03 80)" }}>A few thoughtful things from our Zola</p>
         </div>
       </section>
+
       <section className="max-w-2xl mx-auto px-6 py-14 text-center">
         <AnimatedSection>
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)", color: "oklch(0.38 0.03 65)", lineHeight: 1.8 }}>
-            We have set up our RSVP and registry together on Zola so everything is in one place. Please use the links below to let us know you are coming and, if you would like, explore our registry.
+            Your presence with us in Tuscany is truly the greatest gift. For anyone who would like to give something, we have put together a small registry on Zola with a range of options we would cherish.
           </p>
         </AnimatedSection>
       </section>
-      <section className="max-w-4xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <AnimatedSection>
-            <div className="rounded-sm overflow-hidden shadow-xl flex flex-col" style={{ background: "oklch(0.18 0.02 65)" }}>
-              <div className="relative overflow-hidden" style={{ height: 220 }}>
-                <img src={TERRACE_IMG} alt="Borgo San Vincenzo terrace" className="w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, oklch(0.18 0.02 65 / 0.7) 0%, transparent 60%)" }} />
-              </div>
-              <div style={{ height: 3, background: "oklch(0.55 0.12 38)" }} />
-              <div className="p-8 flex flex-col flex-1">
-                <p className="uppercase tracking-[0.25em] mb-2" style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", color: "oklch(0.55 0.12 38)" }}>Step One</p>
-                <h2 className="mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "white", lineHeight: 1.2 }}>RSVP</h2>
-                <p className="mb-6 flex-1" style={{ fontFamily: "'Lato', sans-serif", fontSize: "0.9rem", color: "oklch(0.70 0.03 75)", lineHeight: 1.7 }}>
-                  Please let us know you will be joining us in Tuscany. Your RSVP helps us plan the most wonderful week together. We kindly ask that you respond by <span style={{ color: "oklch(0.78 0.08 38)", fontWeight: 600 }}>January 1, 2027</span>.
-                </p>
-                <ZolaButton label="RSVP on Zola" bg="oklch(0.55 0.12 38)" color="white" url={RSVP_URL} />
-              </div>
+
+      <section className="max-w-md mx-auto px-6 pb-16">
+        <AnimatedSection>
+          <div className="rounded-sm overflow-hidden shadow-xl flex flex-col" style={{ background: "oklch(0.18 0.02 65)" }}>
+            <div className="relative overflow-hidden" style={{ height: 260 }}>
+              <img src={SUNSET_IMG} alt="Borgo San Vincenzo sunset" className="w-full h-full object-cover" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, oklch(0.18 0.02 65 / 0.7) 0%, transparent 60%)" }} />
             </div>
-          </AnimatedSection>
-          <AnimatedSection>
-            <div className="rounded-sm overflow-hidden shadow-xl flex flex-col" style={{ background: "oklch(0.18 0.02 65)" }}>
-              <div className="relative overflow-hidden" style={{ height: 220 }}>
-                <img src={SUNSET_IMG} alt="Borgo San Vincenzo sunset" className="w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, oklch(0.18 0.02 65 / 0.7) 0%, transparent 60%)" }} />
-              </div>
-              <div style={{ height: 3, background: "oklch(0.72 0.1 75)" }} />
-              <div className="p-8 flex flex-col flex-1">
-                <p className="uppercase tracking-[0.25em] mb-2" style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", color: "oklch(0.72 0.1 75)" }}>Step Two</p>
-                <h2 className="mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "white", lineHeight: 1.2 }}>Registry</h2>
-                <p className="mb-6 flex-1" style={{ fontFamily: "'Lato', sans-serif", fontSize: "0.9rem", color: "oklch(0.70 0.03 75)", lineHeight: 1.7 }}>
-                  Your presence in Tuscany with us is truly the greatest gift. If you would like to give something, we have put together a registry on Zola with a range of options we would cherish.
-                </p>
-                <ZolaButton label="View Registry on Zola" bg="oklch(0.72 0.1 75)" color="oklch(0.15 0.01 65)" url={REGISTRY_URL} />
-              </div>
+            <div style={{ height: 3, background: "oklch(0.72 0.1 75)" }} />
+            <div className="p-8 flex flex-col flex-1 text-center">
+              <p className="uppercase tracking-[0.25em] mb-2" style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", color: "oklch(0.72 0.1 75)" }}>With Love</p>
+              <h2 className="mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 400, color: "white", lineHeight: 1.2 }}>Our Registry</h2>
+              <p className="mb-6 flex-1" style={{ fontFamily: "'Lato', sans-serif", fontSize: "0.9rem", color: "oklch(0.70 0.03 75)", lineHeight: 1.7 }}>
+                A few things we have curated together — from pieces for our home to experiences we hope to share. Whatever you choose, we will treasure it.
+              </p>
+              <ZolaButton label="View Registry on Zola" bg="oklch(0.72 0.1 75)" color="oklch(0.15 0.01 65)" url={REGISTRY_URL} />
             </div>
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
       </section>
+
       <section className="relative overflow-hidden" style={{ height: 340 }}>
         <img src={FIREPIT_IMG} alt="Evening at Borgo San Vincenzo" className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} />
         <div className="absolute inset-0 flex items-center justify-center" style={{ background: "oklch(0.18 0.01 65 / 0.55)" }}>
@@ -107,12 +91,14 @@ export default function RsvpRegistryPage() {
           </div>
         </div>
       </section>
+
       <section className="max-w-2xl mx-auto px-6 py-14 text-center">
         <AnimatedSection>
           <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "oklch(0.55 0.12 38)", marginBottom: "0.75rem" }}>Our Zola Page</p>
           <a href={REGISTRY_URL} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "1.1rem", color: "oklch(0.45 0.04 65)", textDecoration: "none", borderBottom: "1px solid oklch(0.55 0.12 38)", paddingBottom: "2px" }}>zola.com/wedding/damon-mackenzie</a>
         </AnimatedSection>
       </section>
+
       <Footer />
     </div>
   );
